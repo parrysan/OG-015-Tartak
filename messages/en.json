@@ -487,5 +487,101 @@
         "why": "Prioritises convenience — one supplier instead of three, one contact, one invoice. Saves the site manager's time"
       }
     }
+  },
+  "GoLivePage": {
+    "title": "Getting Your Website Live",
+    "subtitle": "A simple 4-step process to move your finished website from our development server to your own domain.",
+    "cta": {
+      "title": "Shared To-Do List",
+      "description": "We are using a shared Google Document to track all the tasks needed to get the website live. Open it to see the current status and any items that need your input.",
+      "button": "Open Shared Document"
+    },
+    "phase1": {
+      "title": "Domain Setup",
+      "badge": "Your action",
+      "item1": "Find out where tartakplonsk.pl is registered (which company)",
+      "item2": "Log in to the domain panel and update the DNS settings Phil sends you",
+      "item3": "Or: share the login with Phil and he will do it for you"
+    },
+    "phase2": {
+      "title": "Hosting Setup",
+      "badge": "Phil handles this",
+      "item1": "Set up free hosting on Google Firebase",
+      "item2": "Connect the domain to the new hosting",
+      "item3": "Security certificate (HTTPS padlock) is applied automatically"
+    },
+    "phase3": {
+      "title": "Final Checks",
+      "badge": "Phil handles this",
+      "item1": "Verify the quote request form sends emails correctly",
+      "item2": "Confirm all pages load in Polish, English & Ukrainian",
+      "item3": "Test on mobile phones and desktop computers"
+    },
+    "phase4": {
+      "title": "Live!",
+      "badge": "Done",
+      "item1": "Website live at tartakplonsk.pl",
+      "item2": "Hosting in your Google account (jarooook@gmail.com)",
+      "item3": "No monthly hosting fee"
+    },
+    "domain": {
+      "needTitle": "What we need from you",
+      "needSub": "To connect the domain, we need a few things from your side.",
+      "q1Title": "Where is tartakplonsk.pl registered?",
+      "q1Body": "Which company manages it? (e.g. home.pl, OVH, nazwa.pl, cyber_Folks)",
+      "q2Title": "Access to the domain panel",
+      "q2Body": "Either share the login details with Phil, or be ready to paste in 2 DNS records that Phil will send you",
+      "q3Title": "Confirm business details",
+      "q3Body": "Exact street address, opening hours, and a Google Maps pin for the sawmill location",
+      "needNote": "If you are unsure about any of these, Phil can walk you through it step by step.",
+      "dnsTitle": "What the DNS change looks like",
+      "dnsSub": "This is what you (or Phil) will do in the domain panel. It takes about 5 minutes.",
+      "dns1": "Log in to your domain registrar (the company where you bought tartakplonsk.pl)",
+      "dns2": "Find the DNS settings page (sometimes called \"DNS zone\" or \"domain records\")",
+      "dns3": "Add or update the A record — Phil will give you the exact IP address to enter",
+      "dns4": "Add a TXT record — Phil will give you the exact text to paste in",
+      "dns5": "Save. The change takes effect within a few hours (sometimes up to 24h)",
+      "dnsNote": "Phil will send the exact values to copy and paste. You do not need to guess anything."
+    },
+    "panels": {
+      "hosting": {
+        "title": "Hosting (free)",
+        "sub": "Where the website lives on the internet",
+        "item1": "Google provides a generous free quota for small websites",
+        "item2": "Your site fits comfortably within it",
+        "item3": "If traffic grows significantly or you add advanced features, there may be a cost — but only when those extras are added",
+        "item4": "For now, it is free"
+      },
+      "database": {
+        "title": "Database (free)",
+        "sub": "Storing customer emails and quote requests",
+        "item1": "A simple database can be added to store customer contact information and quote requests",
+        "item2": "Makes it easy to follow up and keep a record of enquiries",
+        "item3": "Free tier is more than enough for this site"
+      },
+      "seo": {
+        "title": "SEO & AEO",
+        "sub": "Helping customers find you on Google and AI search",
+        "body": "Search engine optimisation is an ongoing exercise. Phil can regularly update the website so it ranks well on Google and appears in AI-powered search results.",
+        "item1": "Google Business profile setup",
+        "item2": "Local search optimisation (Płońsk area)",
+        "item3": "Structured data for AI search engines",
+        "tag": "Ongoing"
+      },
+      "ads": {
+        "title": "Advertising",
+        "sub": "Promoting the website to reach more customers",
+        "body": "Once the site is live, we can discuss how you would like to promote it. Options include:",
+        "item1": "Facebook & Instagram ads (local targeting)",
+        "item2": "Google Ads (people searching for timber / sawmill)",
+        "item3": "Google Maps listing",
+        "tag": "To discuss"
+      }
+    },
+    "footer": {
+      "hostedOn": "Hosting provided by",
+      "account": "Account owner:",
+      "prepared": "Prepared by Phil Parry, April 2026"
+    }
   }
 }

@@ -487,5 +487,101 @@
         "why": "Stawia na wygodę — jeden dostawca zamiast trzech, jeden kontakt, jedna faktura. Oszczędność czasu kierownika budowy"
       }
     }
+  },
+  "GoLivePage": {
+    "title": "Uruchomienie Twojej strony internetowej",
+    "subtitle": "Prosty 4-etapowy proces przeniesienia gotowej strony z naszego serwera deweloperskiego na Twoją własną domenę.",
+    "cta": {
+      "title": "Wspólna lista zadań",
+      "description": "Używamy współdzielonego dokumentu Google do śledzenia wszystkich zadań potrzebnych do uruchomienia strony. Otwórz go, aby zobaczyć aktualny status i elementy wymagające Twojego działania.",
+      "button": "Otwórz wspólny dokument"
+    },
+    "phase1": {
+      "title": "Konfiguracja domeny",
+      "badge": "Twoje działanie",
+      "item1": "Dowiedz się, gdzie jest zarejestrowana domena tartakplonsk.pl (jaka firma)",
+      "item2": "Zaloguj się do panelu domeny i zaktualizuj ustawienia DNS, które Phil Ci wyśle",
+      "item3": "Lub: udostępnij login Philowi, a zrobi to za Ciebie"
+    },
+    "phase2": {
+      "title": "Konfiguracja hostingu",
+      "badge": "Phil się tym zajmie",
+      "item1": "Utworzenie darmowego hostingu na Google Firebase",
+      "item2": "Podłączenie domeny do nowego hostingu",
+      "item3": "Certyfikat bezpieczeństwa (kłódka HTTPS) jest dodawany automatycznie"
+    },
+    "phase3": {
+      "title": "Końcowe sprawdzenie",
+      "badge": "Phil się tym zajmie",
+      "item1": "Sprawdzenie, czy formularz wyceny poprawnie wysyła e-maile",
+      "item2": "Potwierdzenie, że wszystkie strony działają po polsku, angielsku i ukraińsku",
+      "item3": "Testy na telefonach komórkowych i komputerach"
+    },
+    "phase4": {
+      "title": "Strona działa!",
+      "badge": "Gotowe",
+      "item1": "Strona dostępna pod adresem tartakplonsk.pl",
+      "item2": "Hosting na Twoim koncie Google (jarooook@gmail.com)",
+      "item3": "Brak miesięcznych opłat za hosting"
+    },
+    "domain": {
+      "needTitle": "Co potrzebujemy od Ciebie",
+      "needSub": "Aby podłączyć domenę, potrzebujemy kilku informacji z Twojej strony.",
+      "q1Title": "Gdzie jest zarejestrowana domena tartakplonsk.pl?",
+      "q1Body": "Jaka firma nią zarządza? (np. home.pl, OVH, nazwa.pl, cyber_Folks)",
+      "q2Title": "Dostęp do panelu domeny",
+      "q2Body": "Udostępnij login Philowi, lub przygotuj się do wklejenia 2 rekordów DNS, które Phil Ci wyśle",
+      "q3Title": "Potwierdź dane firmy",
+      "q3Body": "Dokładny adres, godziny otwarcia i pinezka Google Maps dla lokalizacji tartaku",
+      "needNote": "Jeśli nie znasz odpowiedzi, Phil pomoże Ci je znaleźć krok po kroku.",
+      "dnsTitle": "Jak wygląda zmiana DNS",
+      "dnsSub": "To co Ty (lub Phil) zrobicie w panelu domeny. Zajmuje to około 5 minut.",
+      "dns1": "Zaloguj się u rejestratora domeny (firma, w której kupiono tartakplonsk.pl)",
+      "dns2": "Znajdź stronę ustawień DNS (czasem nazywaną \"strefa DNS\" lub \"rekordy domeny\")",
+      "dns3": "Dodaj lub zaktualizuj rekord A — Phil poda dokładny adres IP do wpisania",
+      "dns4": "Dodaj rekord TXT — Phil poda dokładny tekst do wklejenia",
+      "dns5": "Zapisz. Zmiana zacznie działać w ciągu kilku godzin (czasem do 24h)",
+      "dnsNote": "Phil wyśle dokładne wartości do skopiowania i wklejenia. Nie musisz niczego zgadywać."
+    },
+    "panels": {
+      "hosting": {
+        "title": "Hosting (darmowy)",
+        "sub": "Gdzie strona żyje w internecie",
+        "item1": "Google zapewnia hojny darmowy limit dla małych stron",
+        "item2": "Twoja strona mieści się w nim swobodnie",
+        "item3": "Jeśli ruch znacznie wzrośnie lub dodasz zaawansowane funkcje, może pojawić się koszt — ale dopiero wtedy",
+        "item4": "Na razie jest za darmo"
+      },
+      "database": {
+        "title": "Baza danych (darmowa)",
+        "sub": "Przechowywanie e-maili klientów i zapytań o wycenę",
+        "item1": "Prosta baza danych do przechowywania danych kontaktowych klientów i zapytań o wycenę",
+        "item2": "Ułatwia kontakt zwrotny i prowadzenie rejestru zapytań",
+        "item3": "Darmowy limit w zupełności wystarcza dla tej strony"
+      },
+      "seo": {
+        "title": "SEO i AEO",
+        "sub": "Pomoc klientom w znalezieniu Cię w Google i wyszukiwarkach AI",
+        "body": "Optymalizacja pod wyszukiwarki to ciągły proces. Phil może regularnie aktualizować stronę, aby dobrze się pozycjonowała w Google i pojawiała się w wynikach wyszukiwarek AI.",
+        "item1": "Konfiguracja profilu Google Business",
+        "item2": "Lokalna optymalizacja wyszukiwania (okolice Płońska)",
+        "item3": "Dane strukturalne dla wyszukiwarek AI",
+        "tag": "W toku"
+      },
+      "ads": {
+        "title": "Reklama",
+        "sub": "Promocja strony, aby dotrzeć do większej liczby klientów",
+        "body": "Gdy strona będzie aktywna, możemy omówić, jak chcesz ją promować. Opcje obejmują:",
+        "item1": "Reklamy na Facebooku i Instagramie (lokalne targetowanie)",
+        "item2": "Google Ads (osoby szukające drewna / tartaku)",
+        "item3": "Wizytówka Google Maps",
+        "tag": "Do omówienia"
+      }
+    },
+    "footer": {
+      "hostedOn": "Hosting zapewniony przez",
+      "account": "Właściciel konta:",
+      "prepared": "Przygotował Phil Parry, kwiecień 2026"
+    }
   }
 }

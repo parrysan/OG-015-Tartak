@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Your Website Live — tartakplonsk.pl</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #faf9f6;
+    color: #2d2a26;
+    padding: 60px;
+    width: 1500px;
+  }
+
+  .header {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2d2a26;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .header .domain {
+    font-size: 18px;
+    color: #5a7a3a;
+    font-weight: 600;
+  }
+
+  .header .subtitle {
+    font-size: 15px;
+    color: #8a8078;
+    margin-top: 12px;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .arrow-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    padding-top: 80px;
+    flex-shrink: 0;
+  }
+
+  .arrow-connector svg {
+    width: 28px;
+    height: 28px;
+    color: #c4b9a8;
+  }
+
+  /* Phase card */
+  .phase {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #e8e2d8;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .phase.client-action { border-color: #d4c4a0; }
+  .phase.phil-action { border-color: #b8d4a0; }
+  .phase.result {
+    border-color: #5a7a3a;
+    box-shadow: 0 4px 20px rgba(90,122,58,0.15);
+  }
+
+  .phase-header {
+    padding: 24px 24px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .phase-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .client-action .phase-number { background: #a0885a; }
+  .phil-action .phase-number { background: #6b9a42; }
+  .result .phase-number { background: #5a7a3a; }
+
+  .phase-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .phase-title .action-by {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .client-action .action-by { color: #a0885a; background: #f5efe4; }
+  .phil-action .action-by { color: #5a7a3a; background: #eef5e6; }
+  .result .action-by { color: #fff; background: #5a7a3a; }
+
+  .phase-divider {
+    height: 1px;
+    background: #eee8de;
+    margin: 0 24px 16px;
+  }
+
+  .phase-content {
+    padding: 0 24px 24px;
+  }
+
+  .phase-content ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .phase-content li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a4540;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .phase-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c4b9a8;
+  }
+
+  .result .phase-content li { color: #2d4a1a; font-weight: 500; }
+  .result .phase-content li::before { background: #5a7a3a; }
+
+  /* Domain instructions section */
+  .domain-section {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+  }
+
+  .domain-section .col {
+    flex: 1;
+    background: #fff;
+    border: 2px solid #d4c4a0;
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .domain-section .col h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #a0885a;
+    margin-bottom: 6px;
+  }
+
+  .domain-section .col .col-sub {
+    font-size: 13px;
+    color: #8a8078;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .domain-section .col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .domain-section .col li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a4540;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .domain-section .col li .num {
+    background: #a0885a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .domain-section .col .note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #8a8078;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* Bottom panels */
+  .panels {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .panel {
+    background: #fff;
+    border: 2px solid #e8e2d8;
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+
+  .panel h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d2a26;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .panel .panel-sub {
+    font-size: 13px;
+    color: #8a8078;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .panel .panel-body {
+    font-size: 14px;
+    color: #4a4540;
+    line-height: 1.6;
+  }
+
+  .panel .panel-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .panel .panel-body li {
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .panel .panel-body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c4b9a8;
+  }
+
+  .panel .cost-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #3d6620;
+    background: #eef5e6;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 12px;
+  }
+
+  .panel .tbd-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #a0885a;
+    background: #f5efe4;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 12px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: left;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #e8e2d8;
+  }
+
+  .footer p {
+    font-size: 13px;
+    color: #a09888;
+    line-height: 1.6;
+  }
+
+  .footer .highlight {
+    color: #5a7a3a;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Getting Your Website Live</h1>
+  <div class="domain">tartakplonsk.pl</div>
+  <p class="subtitle">A simple 4-step process to move your finished website from our development server to your own domain.</p>
+</div>
+
+<!-- Process timeline -->
+<div class="timeline">
+
+  <div class="phase client-action">
+    <div class="phase-header">
+      <div class="phase-number">1</div>
+      <div class="phase-title">
+        Domain Setup
+        <span class="action-by">Your action</span>
+      </div>
+    </div>
+    <div class="phase-divider"></div>
+    <div class="phase-content">
+      <ul>
+        <li>Find out where <strong>tartakplonsk.pl</strong> is registered (which company)</li>
+        <li>Log in to the domain panel and update the DNS settings Phil sends you</li>
+        <li>Or: share the login with Phil and he will do it for you</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="arrow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 5l7 7-7 7"/>
+    </svg>
+  </div>
+
+  <div class="phase phil-action">
+    <div class="phase-header">
+      <div class="phase-number">2</div>
+      <div class="phase-title">
+        Hosting Setup
+        <span class="action-by">Phil handles this</span>
+      </div>
+    </div>
+    <div class="phase-divider"></div>
+    <div class="phase-content">
+      <ul>
+        <li>Set up free hosting on Google Firebase</li>
+        <li>Connect the domain to the new hosting</li>
+        <li>Security certificate (HTTPS padlock) is applied automatically</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="arrow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 5l7 7-7 7"/>
+    </svg>
+  </div>
+
+  <div class="phase phil-action">
+    <div class="phase-header">
+      <div class="phase-number">3</div>
+      <div class="phase-title">
+        Final Checks
+        <span class="action-by">Phil handles this</span>
+      </div>
+    </div>
+    <div class="phase-divider"></div>
+    <div class="phase-content">
+      <ul>
+        <li>Verify the quote request form sends emails correctly</li>
+        <li>Confirm all pages load in Polish, English &amp; Ukrainian</li>
+        <li>Test on mobile phones and desktop computers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="arrow-connector">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 5l7 7-7 7"/>
+    </svg>
+  </div>
+
+  <div class="phase result">
+    <div class="phase-header">
+      <div class="phase-number">&#x2713;</div>
+      <div class="phase-title">
+        Live!
+        <span class="action-by">Done</span>
+      </div>
+    </div>
+    <div class="phase-divider"></div>
+    <div class="phase-content">
+      <ul>
+        <li>Website live at <strong>tartakplonsk.pl</strong></li>
+        <li>Hosting in your Google account (<strong>jarooook@gmail.com</strong>)</li>
+        <li><strong>No monthly hosting fee</strong></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- Domain instructions -->
+<div class="domain-section">
+  <div class="col">
+    <h3>What we need from you</h3>
+    <div class="col-sub">To connect the domain, we need a few things from your side.</div>
+    <ul>
+      <li>
+        <span class="num">1</span>
+        <span><strong>Where is tartakplonsk.pl registered?</strong><br>Which company manages it? (e.g. home.pl, OVH, nazwa.pl, cyber_Folks)</span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span><strong>Access to the domain panel</strong><br>Either share the login details with Phil, or be ready to paste in 2 DNS records that Phil will send you</span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span><strong>Confirm business details</strong><br>Exact street address, opening hours, and a Google Maps pin for the sawmill location</span>
+      </li>
+    </ul>
+    <p class="note">If you are unsure about any of these, Phil can walk you through it step by step.</p>
+  </div>
+  <div class="col">
+    <h3>What the DNS change looks like</h3>
+    <div class="col-sub">This is what you (or Phil) will do in the domain panel. It takes about 5 minutes.</div>
+    <ul>
+      <li>
+        <span class="num">1</span>
+        <span>Log in to your domain registrar (the company where you bought tartakplonsk.pl)</span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span>Find the <strong>DNS settings</strong> page (sometimes called "DNS zone" or "domain records")</span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span>Add or update the <strong>A record</strong> — Phil will give you the exact IP address to enter</span>
+      </li>
+      <li>
+        <span class="num">4</span>
+        <span>Add a <strong>TXT record</strong> — Phil will give you the exact text to paste in</span>
+      </li>
+      <li>
+        <span class="num">5</span>
+        <span>Save. The change takes effect within a few hours (sometimes up to 24h)</span>
+      </li>
+    </ul>
+    <p class="note">Phil will send the exact values to copy and paste. You do not need to guess anything.</p>
+  </div>
+</div>
+
+<!-- Service panels -->
+<div class="panels">
+
+  <div class="panel">
+    <h4>Hosting (free)</h4>
+    <div class="panel-sub">Where the website lives on the internet</div>
+    <div class="panel-body">
+      <ul>
+        <li>Google provides a generous free quota for small websites</li>
+        <li>Your site fits comfortably within it</li>
+        <li>If traffic grows significantly or you add advanced features, there may be a cost — but only when those extras are added</li>
+        <li>For now, it is free</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h4>Database (free)</h4>
+    <div class="panel-sub">Storing customer emails and quote requests</div>
+    <div class="panel-body">
+      <ul>
+        <li>A simple database can be added to store customer contact information and quote requests</li>
+        <li>Makes it easy to follow up and keep a record of enquiries</li>
+        <li>Free tier is more than enough for this site</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h4>SEO &amp; AEO</h4>
+    <div class="panel-sub">Helping customers find you on Google and AI search</div>
+    <div class="panel-body">
+      Search engine optimisation is an ongoing exercise. Phil can regularly update the website so it ranks well on Google and appears in AI-powered search results (like ChatGPT, Perplexity, etc.).
+      <ul>
+        <li>Google Business profile setup</li>
+        <li>Local search optimisation (Plonsk area)</li>
+        <li>Structured data for AI search engines</li>
+      </ul>
+      <span class="tbd-tag">Ongoing</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h4>Advertising</h4>
+    <div class="panel-sub">Promoting the website to reach more customers</div>
+    <div class="panel-body">
+      Once the site is live, we can discuss how you would like to promote it. Options include:
+      <ul>
+        <li>Facebook &amp; Instagram ads (local targeting)</li>
+        <li>Google Ads (people searching for timber / sawmill)</li>
+        <li>Google Maps listing</li>
+      </ul>
+      <span class="tbd-tag">To discuss</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Hosting provided by <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer" class="highlight" style="text-decoration:none;">Google Firebase</a> &middot; Account owner: <span class="highlight">jarooook@gmail.com</span> &middot; Prepared by Phil Parry, April 2026</p>
+</div>
+
+</body>
+</html>
