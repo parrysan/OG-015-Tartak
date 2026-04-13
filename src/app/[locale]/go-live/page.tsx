@@ -150,9 +150,8 @@ function GoLiveContent() {
     <div className="mx-auto max-w-7xl px-4 py-16">
       {/* Header */}
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-foreground mb-2">{t('title')}</h1>
-        <p className="text-lg font-semibold text-primary">tartakplonsk.pl</p>
-        <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+        <h1 className="text-4xl font-bold text-foreground mb-4">{t('title')}</h1>
+        <p className="max-w-3xl text-xl text-muted-foreground leading-relaxed">
           {t('subtitle')}
         </p>
       </div>
