@@ -38,7 +38,7 @@ created: "2026-04-06"
 | **Code root** | this folder (`dev/OG-015-Tartak/`) |
 | **Project docs** | `./docs/` |
 | **Vault project page** | `Open-Memory-Vault/projects/OG-015-Tartak/README.md` |
-| **GitHub repo** | TBD — not yet initialized |
+| **GitHub repo** | https://github.com/parrysan/OG-015-Tartak |
 | **External systems** | none |
 
 ---
